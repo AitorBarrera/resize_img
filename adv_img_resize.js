@@ -32,7 +32,7 @@ fs.readdirSync(inputFolder).forEach((file) => {
         const resizedWidth = width * scaleFactor;
 
         // Generar el nombre del archivo de salida
-        const outputFileName = `${path.parse(file).name}-${label}-${density}.${
+        const outputFileName = `${path.parse(file).name}-${label}-${density}${
           path.parse(file).ext
         }`;
         const outputFile = path.join(outputFolder, outputFileName);
