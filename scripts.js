@@ -71,21 +71,21 @@ async function renderImg() {
                     output-adv/${foto.url}-small-1x.${foto.extension},
                     output-adv/${foto.url}-small-2x.${foto.extension} 2x
                     "
-                    media="(max-width:640px)"
+                    media="(max-width:2040px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-medium-1x.${foto.extension},
                     output-adv/${foto.url}-medium-2x.${foto.extension} 2x
                     "
-                    media="(max-width:1280px)"
+                    media="(max-width:11280px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-large-1x.${foto.extension},
                     output-adv/${foto.url}-large-2x.${foto.extension} 2x
                     "
-                    media="(max-width:1920px)"
+                    media="(max-width:11920px)"
                 />
                 <source
                     srcset="
@@ -103,17 +103,19 @@ async function renderImg() {
         `;  
     });
 }
-renderImg();
 
-// document.addEventListener('DOMContentLoaded', async () => {
-//     try {
-//         await renderImg();
-//         const grid = document.querySelector('.d-flex');
-//         new Masonry(grid, {
-//             itemSelector: '.gallery-item',
-//             percentPosition: true,
-//         });
-//     } catch (error) {
-//         console.log(error);
-//     }
-// });
+try {
+    await renderImg();
+    document.addEventListener('DOMContentLoaded', async () => {
+        const grid = document.querySelector('.d-flex');
+        new Masonry(grid, {
+            itemSelector: '.gallery-item',
+            percentPosition: true,
+        });
+        
+        console.log(error);
+    });
+} catch (error) {
+    console.log(error);
+}
+
