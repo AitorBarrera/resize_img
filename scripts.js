@@ -3,96 +3,108 @@ const listaFotos = [
         id: 0,
         url: 'macaco-japones-smartphone-2771257',
         extension: 'webp',
-        description: 'Mono haciendo doomscrolling'
+        description: 'Mono haciendo doomscrolling',
+        style: 'landscape'
     },
     {
         id: 1,
         url: 'pexels-aleksey-kuprikov-1883853-3493731',
         extension: 'jpg',
-        description: 'Mono madre con mono hijo'
+        description: 'Mono madre con mono hijo',
+        style: 'portrait'
     },
     {
         id: 2,
         url: 'pexels-andre-mouton-1207875',
         extension: 'jpg',
-        description: 'Mono reflexionando sobre la vida'
+        description: 'Mono reflexionando sobre la vida',
+        style: 'landscape'
     },
     {
         id: 3,
         url: 'pexels-arindam-2213575',
         extension: 'jpg',
-        description: 'Mono gritando'
+        description: 'Mono gritando',
+        style: 'portrait'
     },
     {
         id: 4,
         url: 'pexels-iurii-laimin-78973777-14431127',
         extension: 'jpg',
-        description: 'Monos besandose'
+        description: 'Monos besandose',
+        style: 'portrait'
     },
     {
         id: 5,
         url: 'pexels-james-boss-1456964-13187517',
         extension: 'jpg',
-        description: 'Mono sobre mis muertos'
+        description: 'Mono sobre mis muertos',
+        style: 'landscape'
     },
     {
         id: 6,
         url: 'pexels-rachel-claire-5865560',
         extension: 'jpg',
-        description: 'Mono oculto'
+        description: 'Mono oculto',
+        style: 'portrait'
     },
     {
         id: 7,
         url: 'pexels-t6adventures-14598417',
         extension: 'jpg',
-        description: 'Mono rezando a la virgen maria'
+        description: 'Mono rezando a la virgen maria',
+        style: 'landscape'
     },
     {
         id: 8,
         url: 'pexels-yankrukov-5479895',
         extension: 'jpg',
-        description: 'Mono de chill'
+        description: 'Mono de chill',
+        style: 'portrait'
     },
 ]
 
 async function renderImg() {
-    
-    const contenedorFotos = document.querySelector('.contenedorFotos');
+    let contenedorFotos = document.querySelector('.contenedorFotos');
+    let fotoStyle = "";
+    let index = 0;
     listaFotos.forEach((foto) => {
-        contenedorFotos.innerHTML += `
+        
+        if (foto.style === 'portrait') {
+            fotoStyle = "fotoPortrait";
+        } else {
+            fotoStyle = "fotoLandscape";
+        }
+
+        contenedorFotos.innerHTML += `  
             <picture
-                class="foto gallery-item m-3"
-                data-lazy=""
-                data-download-area-keyframe='{"start": "a0t - 200vh", "end": "a0b + 100vh", "anchors": [".accordion"]}'
-                data-picture-loaded=""
+                class="foto item-${index} m-3 fotoPortrait ${fotoStyle}"
                 >
                 <source
                     srcset="
                     output-adv/${foto.url}-small-1x.${foto.extension},
                     output-adv/${foto.url}-small-2x.${foto.extension} 2x
                     "
-                    media="(max-width:2040px)"
+                    media="(max-width:1500px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-medium-1x.${foto.extension},
                     output-adv/${foto.url}-medium-2x.${foto.extension} 2x
                     "
-                    media="(max-width:11280px)"
+                    media="(min-width:0px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-large-1x.${foto.extension},
                     output-adv/${foto.url}-large-2x.${foto.extension} 2x
                     "
-                    media="(max-width:11920px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-xlarge-1x.${foto.extension},
                     output-adv/${foto.url}-xlarge-2x.${foto.extension} 2x
                     "
-                    media="(min-width:0px)"
                 />
                 <img
                     src="output-adv/${foto.url}-small-1x.${foto.extension}"
@@ -100,22 +112,9 @@ async function renderImg() {
                     class="shadow"
                 />
             </picture>
-        `;  
+        `;
+        index++;  
     });
 }
 
-try {
-    await renderImg();
-    document.addEventListener('DOMContentLoaded', async () => {
-        const grid = document.querySelector('.d-flex');
-        new Masonry(grid, {
-            itemSelector: '.gallery-item',
-            percentPosition: true,
-        });
-        
-        console.log(error);
-    });
-} catch (error) {
-    console.log(error);
-}
-
+renderImg()
