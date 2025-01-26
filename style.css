@@ -22,11 +22,6 @@ img{
     border-radius: 25px;
 }
 
-main{
-    /* display: flex;
-    justify-content: center; */
-}
-
 .contenedorFotos{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
