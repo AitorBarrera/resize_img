@@ -1,66 +1,66 @@
 const listaFotos = [
     {
         id: 0,
-        url: 'macaco-japones-smartphone-2771257',
-        extension: 'webp',
-        description: 'Mono haciendo doomscrolling',
-        style: 'landscape'
-    },
-    {
-        id: 1,
         url: 'pexels-aleksey-kuprikov-1883853-3493731',
         extension: 'jpg',
         description: 'Mono madre con mono hijo',
         style: 'portrait'
     },
     {
-        id: 2,
-        url: 'pexels-andre-mouton-1207875',
-        extension: 'jpg',
-        description: 'Mono reflexionando sobre la vida',
+        id: 1,
+        url: 'macaco-japones-smartphone-2771257',
+        extension: 'webp',
+        description: 'Mono haciendo doomscrolling',
         style: 'landscape'
     },
     {
-        id: 3,
-        url: 'pexels-arindam-2213575',
-        extension: 'jpg',
-        description: 'Mono gritando',
-        style: 'portrait'
-    },
-    {
-        id: 4,
+        id: 2,
         url: 'pexels-iurii-laimin-78973777-14431127',
         extension: 'jpg',
         description: 'Monos besandose',
         style: 'portrait'
     },
     {
-        id: 5,
-        url: 'pexels-james-boss-1456964-13187517',
-        extension: 'jpg',
-        description: 'Mono sobre mis muertos',
-        style: 'landscape'
-    },
-    {
-        id: 6,
+        id: 3,
         url: 'pexels-rachel-claire-5865560',
         extension: 'jpg',
         description: 'Mono oculto',
         style: 'portrait'
     },
     {
-        id: 7,
-        url: 'pexels-t6adventures-14598417',
+        id: 4,
+        url: 'pexels-arindam-2213575',
         extension: 'jpg',
-        description: 'Mono rezando a la virgen maria',
+        description: 'Mono gritando',
+        style: 'portrait'
+    },
+    {
+        id: 5,
+        url: 'pexels-andre-mouton-1207875',
+        extension: 'jpg',
+        description: 'Mono reflexionando sobre la vida',
         style: 'landscape'
     },
     {
-        id: 8,
+        id: 6,
+        url: 'pexels-james-boss-1456964-13187517',
+        extension: 'jpg',
+        description: 'Mono sobre una tumba',
+        style: 'landscape'
+    },
+    {
+        id: 7,
         url: 'pexels-yankrukov-5479895',
         extension: 'jpg',
         description: 'Mono de chill',
         style: 'portrait'
+    },
+    {
+        id: 8,
+        url: 'pexels-t6adventures-14598417',
+        extension: 'jpg',
+        description: 'Mono rezando a la virgen maria',
+        style: 'landscape'
     },
 ]
 
