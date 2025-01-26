@@ -21,3 +21,8 @@ img{
     color: #81b29a;
     border-radius: 25px;
 }
+
+.contenedorFotos{
+    display: grid;
+    justify-items: center;
+}

@@ -71,21 +71,21 @@ async function renderImg() {
                     output-adv/${foto.url}-small-1x.${foto.extension},
                     output-adv/${foto.url}-small-2x.${foto.extension} 2x
                     "
-                    media="(max-width:2040px)"
+                    media="(max-width:1240px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-medium-1x.${foto.extension},
                     output-adv/${foto.url}-medium-2x.${foto.extension} 2x
                     "
-                    media="(max-width:11280px)"
+                    media="(min-width:0px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-large-1x.${foto.extension},
                     output-adv/${foto.url}-large-2x.${foto.extension} 2x
                     "
-                    media="(max-width:11920px)"
+                    media="(max-width:0)"
                 />
                 <source
                     srcset="
@@ -104,17 +104,24 @@ async function renderImg() {
     });
 }
 
+
+
+
 try {
     await renderImg();
     document.addEventListener('DOMContentLoaded', async () => {
-        const grid = document.querySelector('.d-flex');
-        new Masonry(grid, {
-            itemSelector: '.gallery-item',
-            percentPosition: true,
+        let elem = document.querySelector('.contenedorFotos');
+
+        let msnry = new Masonry( elem, {
+            
+        columnWidth: 200
         });
-        
-        console.log(error);
+
+        msnry.imagesLoaded().progress( function() {
+            msnry.masonry();
+        });
     });
+    
 } catch (error) {
     console.log(error);
 }
