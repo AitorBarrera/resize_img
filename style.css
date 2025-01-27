@@ -120,11 +120,18 @@ a figcaption{
 
 .modal-content {
     background-color: #3d405b;
-    color: #f2cc8f;
+    color: #e07a5f;
     border-radius: 10px;
-  }
-
+}
   
 .modal-body {
     background-color: #f4f1de;
-  }
+}
+
+.modal-title{
+    text-transform: uppercase;
+}
+
+.btnModal, .btn-close{
+    background-color: #e07a5f;
+}
