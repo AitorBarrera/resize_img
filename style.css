@@ -26,10 +26,16 @@ img{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
-    align-items: start;
+    align-items: center;
 
     max-width: 70%;
     margin: 0 auto;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    text-align: center;
 }
 
 .fotoPortrait{

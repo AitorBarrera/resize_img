@@ -64,10 +64,11 @@ const listaFotos = [
     },
 ]
 
-async function renderImg() {
+function renderImg() {
     let contenedorFotos = document.querySelector('.contenedorFotos');
     let fotoStyle = "";
     let index = 0;
+
     listaFotos.forEach((foto) => {
         
         if (foto.style === 'portrait') {
