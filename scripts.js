@@ -64,10 +64,11 @@ const listaFotos = [
     },
 ]
 
-async function renderImg() {
+function renderImg() {
     let contenedorFotos = document.querySelector('.contenedorFotos');
     let fotoStyle = "";
     let index = 0;
+
     listaFotos.forEach((foto) => {
         
         if (foto.style === 'portrait') {
@@ -77,8 +78,10 @@ async function renderImg() {
         }
 
         contenedorFotos.innerHTML += `  
-            <picture
-                class="foto item-${index} m-3 fotoPortrait ${fotoStyle}"
+            <a href="output-adv/${foto.url}-xlarge-1x.${foto.extension}" target="_blank"
+                class="foto item-${index} m-3 ${fotoStyle}">
+                <picture
+                class=""
                 >
                 <source
                     srcset="
@@ -92,19 +95,21 @@ async function renderImg() {
                     output-adv/${foto.url}-medium-1x.${foto.extension},
                     output-adv/${foto.url}-medium-2x.${foto.extension} 2x
                     "
-                    media="(min-width:0px)"
+                    media="(max-width:3500px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-large-1x.${foto.extension},
                     output-adv/${foto.url}-large-2x.${foto.extension} 2x
                     "
+                    media="(max-width:6500px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-xlarge-1x.${foto.extension},
                     output-adv/${foto.url}-xlarge-2x.${foto.extension} 2x
                     "
+                    media="(max-width:9000px)"
                 />
                 <img
                     src="output-adv/${foto.url}-small-1x.${foto.extension}"
@@ -112,7 +117,33 @@ async function renderImg() {
                     class="shadow"
                 />
             </picture>
+            <figcaption class="">${foto.description}</figcaption></a>
         `;
+
+        let fotoItem = document.querySelector(`.item-${index}`);
+        let modal = document.querySelector("#modalFotoGrande");
+        let modalBody = document.querySelector(".modal-body");
+        console.log(fotoItem);
+        
+        // fotoItem.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     e.stopPropagation();
+        //     let modal = document.querySelector('.modal-body');
+        //     console.log(fotoItem);
+            
+        //     modal.innerHTML = `
+        //         <img src="output-adv/${foto.url}-large-1x.${foto.extension}" alt="${foto.description}" class="">
+        //     `;
+        // })
+
+        // fotoItem.click(function(){
+        //     modal.modal("show");
+        //   });
+          
+        //   modal.on('show.bs.modal', function(){
+        //     alert('The modal is about to be shown.');
+        //   });
+
         index++;  
     });
 }
