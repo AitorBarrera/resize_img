@@ -113,7 +113,7 @@ async function renderImg() {
                     output-adv/${foto.url}-xlarge-1x.${foto.extension},
                     output-adv/${foto.url}-xlarge-2x.${foto.extension} 2x
                     "
-                    media="(max-width:86500px)"
+                    media="(max-width:8500px)"
                 />
                 <img
                     src="output-adv/${foto.url}-small-1x.${foto.extension}"
@@ -148,23 +148,24 @@ modal.addEventListener('show.bs.modal', (event) => {
     };
 
     modalTitle.innerHTML = foto.description;
-    modalBody.innerHTML = `<picture
+    modalBody.innerHTML = ` <picture
                 <source
                     srcset="
                     output-adv/${foto.url}-large-1x.${foto.extension},
                     output-adv/${foto.url}-large-2x.${foto.extension} 2x
                     "
+                    media="(max-width:2500px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-xlarge-1x.${foto.extension},
                     output-adv/${foto.url}-xlarge-2x.${foto.extension} 2x
                     "
+                    media="(min-width:0px)"
                 />
                 <img
-                    src="output-adv/${foto.url}-small-1x.${foto.extension}"
+                    src="output-adv/${foto.url}-medium-1x.${foto.extension}"
                     alt="${foto.description}"
-                    class="shadow"
                 />
             </picture>`;
 });
