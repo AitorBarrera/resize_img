@@ -77,8 +77,15 @@ async function renderImg() {
         }
 
         contenedorFotos.innerHTML += `  
+            <a
+            data-bs-toggle="modal"
+            data-bs-target="#modalFotoGrande"
+            data-bs-url="${foto.url}"
+            data-bs-extension=${foto.extension}"
+            data-bs-description="${foto.description}"
+            class="foto item-${index} m-3 fotoPortrait ${fotoStyle}">
+
             <picture
-                class="foto item-${index} m-3 fotoPortrait ${fotoStyle}"
                 >
                 <source
                     srcset="
@@ -92,8 +99,56 @@ async function renderImg() {
                     output-adv/${foto.url}-medium-1x.${foto.extension},
                     output-adv/${foto.url}-medium-2x.${foto.extension} 2x
                     "
-                    media="(min-width:0px)"
+                    media="(max-width:3500px)"
                 />
+                <source
+                    srcset="
+                    output-adv/${foto.url}-large-1x.${foto.extension},
+                    output-adv/${foto.url}-large-2x.${foto.extension} 2x
+                    "
+                    media="(max-width:5500px)"
+                />
+                <source
+                    srcset="
+                    output-adv/${foto.url}-xlarge-1x.${foto.extension},
+                    output-adv/${foto.url}-xlarge-2x.${foto.extension} 2x
+                    "
+                    media="(max-width:86500px)"
+                />
+                <img
+                    src="output-adv/${foto.url}-small-1x.${foto.extension}"
+                    alt="${foto.description}"
+                    class="shadow"
+                />
+                <figcaption>${foto.description}</figcaption>
+            </picture></a>
+        `;
+
+
+        index++;  
+    });
+}
+
+renderImg();
+
+
+let modal = document.querySelector('#modalFotoGrande');
+
+modal.addEventListener('show.bs.modal', (event) => {
+    const img = event.relatedTarget;
+    console.log(img);
+    
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalBody = modal.querySelector('.modal-body');
+    
+    let foto = {
+        url: img.getAttribute('data-bs-url'),
+        extension: img.getAttribute('data-bs-extension'),
+        description: img.getAttribute('data-bs-description')
+    };
+
+    modalTitle.innerHTML = foto.description;
+    modalBody.innerHTML = `<picture
                 <source
                     srcset="
                     output-adv/${foto.url}-large-1x.${foto.extension},
@@ -111,10 +166,5 @@ async function renderImg() {
                     alt="${foto.description}"
                     class="shadow"
                 />
-            </picture>
-        `;
-        index++;  
-    });
-}
-
-renderImg()
+            </picture>`;
+});
