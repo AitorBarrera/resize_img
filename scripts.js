@@ -77,8 +77,10 @@ async function renderImg() {
         }
 
         contenedorFotos.innerHTML += `  
+            <a href='output-adv/${foto.url}-xlarge-1x.${foto.extension}' target='_blank'
+            class="foto item-${index} m-3 fotoPortrait ${fotoStyle}">
+
             <picture
-                class="foto item-${index} m-3 fotoPortrait ${fotoStyle}"
                 >
                 <source
                     srcset="
@@ -92,29 +94,35 @@ async function renderImg() {
                     output-adv/${foto.url}-medium-1x.${foto.extension},
                     output-adv/${foto.url}-medium-2x.${foto.extension} 2x
                     "
-                    media="(min-width:0px)"
+                    media="(max-width:3500px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-large-1x.${foto.extension},
                     output-adv/${foto.url}-large-2x.${foto.extension} 2x
                     "
+                    media="(max-width:5500px)"
                 />
                 <source
                     srcset="
                     output-adv/${foto.url}-xlarge-1x.${foto.extension},
                     output-adv/${foto.url}-xlarge-2x.${foto.extension} 2x
                     "
+                    media="(max-width:86500px)"
                 />
                 <img
                     src="output-adv/${foto.url}-small-1x.${foto.extension}"
                     alt="${foto.description}"
                     class="shadow"
                 />
-            </picture>
+                <figcaption>${foto.description}</figcaption>
+            </picture></a>
         `;
+
+
         index++;  
     });
 }
 
-renderImg()
+renderImg();
+
